@@ -1,4 +1,4 @@
-# SpeedRacer
+# SpeedRacer - 4 Lane with Phototransistors
 
 ## What is SpeedRacer? 
 
@@ -7,6 +7,8 @@ we built a pinewood derby track to test car aerodynamics.
 
 SpeedRacer serves a single purpose, which is to keep time on each car. SpeedRacer accomplishes this incredibly well, too: 
 Time data is exposed in realtime via a highly optimized web interface, accessible via Wi-Fi. 
+
+This version has been modified to run 4 lanes and use phototransistors for the finish sensors.
 
 ## How does SpeedRacer work? 
 
@@ -22,11 +24,15 @@ Step two is to wire the appropriate sensors to your track, and connect them to t
 - The RESET button may be pushed to manually reset the track or application state. Connect to GPIO12
 - The LED INDICATOR relays various information about the track and system state, which may be useful, but is not critical. Wire to GPIO5
 
-Wire phototransistors at the end of each lane like so: 
+Wire sensors at the end of each lane between 3.3v and the following GPIO pins: 
 - Lane 1: GPIO13
 - Lane 2: GPIO19
 - Lane 3: GPIO26
 - Lane 4: GPIO16
+
+I ended up using some mystery phototransistors in series with 18k ohm resistors to trigger when something blocked the light from a LED striplight mounted in a gantry above the finish line.  WARNING:  if using a poorly regulated LED light source, the light may actually be flickering faster than the eye can see causing the sensors to trip.
+
+
 
 Once everything has been flashed and wired appropriately, connect the Pi to power. The system will broadcast a wireless network named "SpeedRacer", which you can connect to with the password `chimchim`. Once connected, visit http://speedracer.local (or http://192.168.1.1) in your browser to view the scoreboard. You're off to the races!
 
