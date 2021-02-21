@@ -1,4 +1,4 @@
-# SpeedRacer - 4 Lane with Phototransistors
+# SpeedRacer - 4 Lanes with Phototransistors
 
 ## What is SpeedRacer? 
 
@@ -31,6 +31,11 @@ Wire sensors at the end of each lane between 3.3v and the following GPIO pins:
 - Lane 4: GPIO16
 
 I ended up using some mystery phototransistors in series with 18k ohm resistors to trigger when something blocked the light from a LED striplight mounted in a gantry above the finish line.  WARNING:  if using a poorly regulated LED light source, the light may actually be flickering faster than the eye can see causing the sensors to trip.
+
+
+OPTIONAL - Shutdown/Wake button and status LED. 
+- GPIO3 : Short to GND to trigger shutdown script to enable safe power off.  Trigger again to wake.  
+- GPIO14 : Wire in LED with 330ohm resistor to GND for status light.  Lit while Pi is running.  Off when shutdown.
 
 
 
