@@ -14,7 +14,7 @@ SpeedRacer monitors sensors mounted on your Pinewood Derby track in order to det
 
 ## Installing and using SpeedRacer
 
-Step one is to prepare your [Raspberry Pi Model B Version 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) by flashing the [SpeedRacer system image](https://cdn.ctis.me/file/ctisme-cdn/project-assets/speedracer/SpeedRacer1.0.zip) to an SD card. You'll need an SD card with at least 2GB of storage. To do this, extract the image file from System Images/SpeedRacer1.0.zip and refer to the [Raspberry Pi OS Installation Guide](https://www.raspberrypi.org/documentation/installation/installing-images/)
+Step one is to prepare your [Raspberry Pi Model B Version 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) by flashing the [SpeedRacer 4 Lane system image](https://drive.google.com/file/d/1sHoFOG6Qr3VXYvG6kzO1O6hSGpbitpeV/view?usp=sharing) to an SD card. You'll need an SD card with at least 2GB of storage. To do this, extract the image file from SR_4Lane.zip and refer to the [Raspberry Pi OS Installation Guide](https://www.raspberrypi.org/documentation/installation/installing-images/)
 
 Step two is to wire the appropriate sensors to your track, and connect them to the corresponding pins on your Pi. You may want to refer to the Fritzing diagrams in the Wiring Schematics directory before doing this. Essentially, you'll need to wire it like so: 
 
@@ -22,10 +22,11 @@ Step two is to wire the appropriate sensors to your track, and connect them to t
 - The RESET button may be pushed to manually reset the track or application state. Connect to GPIO12
 - The LED INDICATOR relays various information about the track and system state, which may be useful, but is not critical. Wire to GPIO5
 
-Wire bumper switches at the end of each lane like so (up to 3, for the moment, but additional lanes can be added with modifications): 
+Wire phototransistors at the end of each lane like so: 
 - Lane 1: GPIO13
 - Lane 2: GPIO19
 - Lane 3: GPIO26
+- Lane 4: GPIO16
 
 Once everything has been flashed and wired appropriately, connect the Pi to power. The system will broadcast a wireless network named "SpeedRacer", which you can connect to with the password `chimchim`. Once connected, visit http://speedracer.local (or http://192.168.1.1) in your browser to view the scoreboard. You're off to the races!
 
